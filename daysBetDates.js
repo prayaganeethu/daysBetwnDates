@@ -9,6 +9,7 @@ function isLeapYear(y) {
 }		
 
 function daysBetDates(d1, m1, y1, d2, m2, y2) {
+	console.log(d1, m1, y1, d2, m2, y2);
 	let days = 1;
 	let month = [];
 	let isLeap = true;
@@ -40,4 +41,4 @@ function daysBetDates(d1, m1, y1, d2, m2, y2) {
 	}
 }
 
-console.log(daysBetDates(15,8,2015,15,8,2017));
+console.log(daysBetDates(24,11,1986,21,9,2017));

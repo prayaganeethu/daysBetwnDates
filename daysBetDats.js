@@ -1,14 +1,22 @@
 function daysBetDates(d1, m1, y1, d2, m2, y2, days) {
+	if (m1 == 12)
+		m1 = 1;
+	console.log(d1, m1, y1, d2, m2, y2, days);
 	let month = [], isLeap = true;
-	if (isLeap) 
+	if (isLeapYear(y1)) 
 		month.push(31, 29, 30, 31, 30, 31, 30, 31, 30, 31, 30, 31);
 	else
 		month.push(31, 28, 30, 31, 30, 31, 30, 31, 30, 31, 30, 31);
-	if ((m1 == m2) && (y1 == y2)) 
-		return days + Math.abs(d1 - d2);
-	if (y1 == y2) {				
-		days += daysBetDates(1, m1+1, y1, d2, m2, y2, (month[m1+1] - d1));	
-		return days;
+	if ((m1 == m2) && (y1 == y2)) {
+		return days + d2 - d1;
+	}
+	// if (y1 == y2) {	
+	if (m1 == 12) {
+		m1 = 1;	
+		d1=1;
+		y1 += 1;
+		return daysBetDates(d1, m1, y1, d2, m2, y2, 31-d1+1);
+			// days += daysBetDates(1, m1+1, y1, d2, m2, y2, (month[m1-1] - d1));			
 	}
 	else {
 		if (isLeapYear(y1)) 
@@ -29,4 +37,4 @@ function isLeapYear(y) {
 	return false;
 }
 
-console.log(daysBetDates(15,8,2015,15,8,2017,0));
+console.log(daysBetDates(21,11,1986,21,9,2017,0));
