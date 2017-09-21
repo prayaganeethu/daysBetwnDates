@@ -1,13 +1,12 @@
 function isLeapYear(y) {
-	if (y % 4 == 0) {
-		if (y % 100 == 0 && y % 400 == 0)
-			return true;
-		else
-			return false;
-	}
-	else
+	if (y % 400 == 0) 
+		return true;
+	if (y % 100 == 0)
 		return false;
-}
+	if (y % 4 == 0)
+		return true;
+	return false;
+}		
 
 function daysBetDates(d1, m1, y1, d2, m2, y2) {
 	let days = 1;
@@ -41,4 +40,4 @@ function daysBetDates(d1, m1, y1, d2, m2, y2) {
 	}
 }
 
-console.log(daysBetDates(15,8,2016,15,8,2017));
+console.log(daysBetDates(15,8,2015,15,8,2017));
